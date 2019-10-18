@@ -21,6 +21,7 @@ public class bullet {
     Point tPoint;
     int winWidth;
     int winHeight;
+    Rectangle rec;
 
 
     public bullet(double x, double y, Point cPoint, Point tPoint, double speed, int winWidth, int winHeight){
@@ -31,6 +32,8 @@ public class bullet {
         this.speed = speed;
         this.winHeight = winHeight;
         this.winWidth = winWidth;
+
+        rec = new Rectangle((int)this.x, (int)this.y, 20, 20);
 
     }
 
@@ -46,6 +49,8 @@ public class bullet {
         x += -(dx / len * speed);
         y += -(dy / len * speed);
 
+        rec.x = (int)x;
+        rec.y = (int)y;
 
     }
 

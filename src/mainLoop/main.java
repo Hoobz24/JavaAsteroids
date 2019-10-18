@@ -10,8 +10,8 @@ import objects.*;
 public class main extends JPanel implements KeyListener {
 
     public JFrame frame;
-    final int HEIGHT = 500;
-    final int WIDTH = 500;
+    final int HEIGHT = 720;
+    final int WIDTH = 1080;
 
     boolean wd;
     boolean ad;
@@ -19,16 +19,19 @@ public class main extends JPanel implements KeyListener {
     boolean dd;
 
 
+
     public ship shipPlayer;
+
 
 
     main(){
 
+        frame = new JFrame();
 
         addKeyListener(this);
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
-        frame = new JFrame();
+
         frame.setSize(WIDTH, HEIGHT);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -126,8 +129,10 @@ public class main extends JPanel implements KeyListener {
     public void paint(Graphics g) {
         super.paint(g);
         g.setColor(Color.black);
-        g.fillRect(0, 0, WIDTH, HEIGHT);
+        g.fillRect(0, 0, frame.getWidth(), frame.getHeight());
         shipPlayer.paint(g);
+
+
     }
 
     public void update(){
@@ -173,7 +178,8 @@ public class main extends JPanel implements KeyListener {
 
          */
 
-        shipPlayer.update();
+        shipPlayer.update(frame);
+
 
     }
 
